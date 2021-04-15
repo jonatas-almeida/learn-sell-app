@@ -1,0 +1,42 @@
+<div class="curso-details-container">
+    <div class="curso-details-content">
+        <div class="curso-details-wrapper">
+            <h1>Detalhes</h1>
+
+            <div class="details-card">
+                <div class="curso-info">
+                    <h3>{{cursoDetails.course_name}}</h3>
+                    <p>{{cursoDetails.course_description}}</p>
+                    <div class="card-buttons">
+                        <button class="btn-edit" (click)="openForm()">Editar</button>
+                        <button class="btn-delete" (click)="removeCurso()">Deletar</button>
+                    </div>
+                </div>
+                <div class="curso-price">
+                    <p class="price">R${{cursoDetails.course_price}}</p>
+                </div>
+            </div>
+
+            <div class="details-edit" *ngIf="openFormState">
+                <div class="header-edit">
+                    <h1>Editar curso</h1>
+                    <button class="close-button" (click)="closeForm()">
+                        <img src="../../../assets/close.svg">
+                    </button>
+                </div>
+                <form class="edit-curso" [formGroup]="cursosEditForm">
+                    <label>Nome do Curso:</label>
+                    <input type="text" name="course_name" formControlName="course_name">
+                    <label>Preço:</label>
+                    <input type="text" name="course_price" formControlName="course_price">
+                    <label>Descrição:</label>
+                    <textarea rows="5" cols="50" name="course_description" formControlName="course_description"></textarea>
+                    <button class="btn-edit-curso" (click)="updateCurso()">Salvar alterações</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="back-button" routerLink="/home">
+        <img src="../../../assets/arrow-back.svg">
+    </div>
+</div>

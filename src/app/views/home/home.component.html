@@ -1,0 +1,29 @@
+<div class="home-container">
+    <div class="home-content">
+        <div class="home-wrapper">
+            <h1>Cursos</h1>
+            <div class="cursos-container">
+                <form class="add-curso" [formGroup]="cursosForm">
+                    <label>Nome do Curso:</label>
+                    <input type="text" name="course_name" formControlName="course_name">
+                    <label>Preço:</label>
+                    <input type="text" name="course_price" formControlName="course_price">
+                    <label>Descrição:</label>
+                    <textarea rows="10" cols="50" name="course_description" formControlName="course_description"></textarea>
+                </form>
+                <div class="card-container">
+                    <div class="curso-card" *ngFor="let curso of cursos" (click)="goToDetails(curso.id)">
+                        <h3>{{curso.course_name}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="add-button-container">
+                <div class="add-button-content">
+                    <button class="add-button" (click)="addCurso()">
+                        <img class="btn-icon" src="../../../assets/add.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
